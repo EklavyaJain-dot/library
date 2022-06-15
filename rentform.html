@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rent</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+<br><br><br>
+
+
+&nbsp; &nbsp;Name &nbsp;&nbsp;&nbsp; <input id="name" type="text"><br><br>
+&nbsp;&nbsp;&nbsp;bookname&nbsp;&nbsp;<input id="bookname" type="text" spellcheck="true"><br><br>
+&nbsp;&nbsp;issudate&nbsp;&nbsp;<input id="issudate" type="date">
+&nbsp;&nbsp;returndate&nbsp;&nbsp;<input id="returndate" type="date"><br><br>
+&nbsp;&nbsp;submit&nbsp;&nbsp;<input id="submit" type="submit" onclick="calculatedays()"></input><br><br><br>
+&nbsp;&nbsp;&nbsp;<p style="position: absolute; bottom: 57.5%">days for return : </p>
+<p id="output" style="position: relative; left: 13%;  bottom: 5%;"></p>
+<br><br><br>
+<p style="position: relative; position: absolute">it will cost ₹</p>
+<p id="money" style="position: absolute; left: 9.5%;"></p>
+
+<script>
+    function calculatedays(){
+    var issudate = document.getElementById("issudate").value;
+    var returndate = document.getElementById("returndate").value;
+    const date1 = new Date(issudate);
+    const date2 = new Date(returndate)
+    const time = Math.abs(date2 - date1 +1)
+    const days = Math.ceil(time / (1000 * 60 * 90 * 24 ))
+    document.getElementById("output").innerHTML=days;
+    document.getElementById("money").innerHTML=  days*15;
+}
+
+
+</script>
+</body>
+</html>
